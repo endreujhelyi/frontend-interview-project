@@ -29,7 +29,7 @@ const CalendarHeader: FC<Props> = ({
     event: React.KeyboardEvent<HTMLSpanElement>,
   ): void {
     if (event.key === 'Enter') {
-      onLeftArrowClick(event);
+      onRightArrowClick(event);
     }
   }
 
