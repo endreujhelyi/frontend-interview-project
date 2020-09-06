@@ -50,6 +50,13 @@
 .date {
     color: lightgrey;
     cursor: pointer;
+    outline: none;
+
+    &:focus {
+        box-sizing: border-box;
+        border-radius: 50%;
+        border: 1px solid #cb6dd6;
+    }
 
     &InMonth {
         color: black;

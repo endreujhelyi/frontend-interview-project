@@ -8,7 +8,7 @@ const CalendarDayLabel: FC = () => {
     .fill(0)
     .map((_item, index) => index + 1);
 
-  const rootClass = classnames([styles.weekday], [styles.gridItem]);
+  const rootClass = classnames(styles.weekday, styles.gridItem);
 
   return (
     <>

@@ -22,7 +22,7 @@ const CalendarDate: FC<Props> = ({
   const isSelected = isSameDay(dateObject, current);
   const isToday = isSameDay(dateObject, DateTime.local());
 
-  const inMonthSameMonth =
+  const inMonth =
     month &&
     year &&
     isSameMonth(dateObject, DateTime.fromObject({ year, month, day: 1 }));
@@ -34,7 +34,7 @@ const CalendarDate: FC<Props> = ({
   }
 
   const rootClass = classnames(styles.date, styles.gridItem, {
-    [styles.dateInMonth]: inMonthSameMonth,
+    [styles.dateInMonth]: inMonth,
     [styles.dateActive]: isSelected,
     [styles.dateToday]: isToday,
   });

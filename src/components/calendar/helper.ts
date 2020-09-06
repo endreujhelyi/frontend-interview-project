@@ -60,18 +60,18 @@ export const isSameDay = (
     return false;
   }
 
-  const basedateDate = basedate.day;
+  const basedateDay = basedate.day;
   const basedateMonth = basedate.month;
   const basedateYear = basedate.year;
 
-  const dateDate = currentDate.day;
+  const dateDay = currentDate.day;
   const dateMonth = currentDate.month;
   const dateYear = currentDate.year;
 
   return (
-    +basedateDate === +dateDate &&
-    +basedateMonth === +dateMonth &&
-    +basedateYear === +dateYear
+    basedateDay === dateDay &&
+    basedateMonth === dateMonth &&
+    basedateYear === dateYear
   );
 };
 

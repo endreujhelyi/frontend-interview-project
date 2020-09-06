@@ -69,10 +69,7 @@ const Calendar: FC<Props> = ({
     onDateChange(state.current);
   }, [state]);
 
-  const onDateClick = (
-    event: React.MouseEvent<HTMLElement>,
-    date: DateTime,
-  ): void => {
+  const onDateClick = (event: UserEvent, date: DateTime): void => {
     event.preventDefault();
     const { current } = state;
     const isTheSameDay: boolean = isSameDay(date, current);
@@ -94,12 +91,7 @@ const Calendar: FC<Props> = ({
     setState((s) => ({ ...s, ...getNextMonth(month, year) }));
   };
 
-  const rootClass = classnames(
-    {
-      [styles.calendar]: true,
-    },
-    className,
-  );
+  const rootClass = classnames(styles.calendar, className);
 
   return (
     <div className={rootClass} {...otherProps}>
