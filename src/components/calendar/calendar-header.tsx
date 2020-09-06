@@ -5,10 +5,10 @@ import { UserEvent } from './helper';
 import styles from './calendar.module.scss';
 
 interface Props {
-  month: number | undefined;
+  month: number;
   onLeftArrowClick: (event: UserEvent) => void;
   onRightArrowClick: (event: UserEvent) => void;
-  year: number | undefined;
+  year: number;
 }
 
 const CalendarHeader: FC<Props> = ({
