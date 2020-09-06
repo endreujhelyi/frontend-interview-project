@@ -8,9 +8,7 @@ interface Props {
   isSolid?: boolean;
 }
 
-const Icon: React.FC<Props> = (props) => {
-  const { name, className, isSolid } = props;
-
+const Icon: React.FC<Props> = ({ name, className, isSolid }) => {
   const rootClass = classnames(
     {
       fa: !isSolid,
