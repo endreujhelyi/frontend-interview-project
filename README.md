@@ -1,3 +1,10 @@
+## My Updates
+
+Added a new **Calendar** component.
+Please after cloning the repository run `npm i` to install all dependencies.
+
+---
+
 ## Frontend interview project
 
 As part of our application process, we would like you to complete this take-home assignment. It should take no more than a few hours.
