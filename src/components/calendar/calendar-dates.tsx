@@ -1,11 +1,17 @@
 import React, { FC } from 'react';
 import { DateTime } from 'luxon';
 import classnames from 'classnames';
-import { CalendarObject, UserEvent, isSameDay, isSameMonth } from './helper';
+import {
+  CalendarArray,
+  CalendarObject,
+  UserEvent,
+  isSameDay,
+  isSameMonth,
+} from './helper';
 import styles from './calendar.module.scss';
 
 interface Props {
-  date: Array<number | string>;
+  date: CalendarArray;
   index: number;
   calendarDate: CalendarObject;
   onDateClick: (e: UserEvent, dateObject: DateTime) => void;

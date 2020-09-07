@@ -2,6 +2,8 @@
 
 import { DateTime } from 'luxon';
 
+export type CalendarArray = Array<number | string>;
+
 export type UserEvent =
   | React.MouseEvent<HTMLSpanElement>
   | React.KeyboardEvent<HTMLSpanElement>;
@@ -33,7 +35,7 @@ const getMonthFirstDay = (
   month: number = THIS_MONTH,
   year: number = THIS_YEAR,
 ): number =>
-  parseInt(DateTime.fromObject({ year, month, day: 1 }).toFormat('c'), 10) + 1;
+  parseInt(DateTime.fromObject({ year, month, day: 1 }).toFormat('c'), 10);
 
 export const isSameMonth = (
   currentDate: DateTime,
@@ -99,7 +101,7 @@ const getWeeksToDisplay = (
 export default (
   month: number = THIS_MONTH,
   year: number = THIS_YEAR,
-): Array<Array<number | string>> => {
+): Array<CalendarArray> => {
   const monthDays = getMonthDays(month, year);
   const monthFirstDay = getMonthFirstDay(month, year);
 

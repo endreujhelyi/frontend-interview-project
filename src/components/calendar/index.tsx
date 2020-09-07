@@ -5,6 +5,7 @@ import CalendarHeader from './calendar-header';
 import CalendarDayLabel from './calendar-day-label';
 import CalendarDates from './calendar-dates';
 import calendar, {
+  CalendarArray,
   CalendarObject,
   UserEvent,
   isSameDay,
@@ -51,7 +52,7 @@ const Calendar: FC<Props> = ({
     };
   }
 
-  const getCalendarDates = (): Array<Array<number | string>> => {
+  const getCalendarDates = (): Array<CalendarArray> => {
     const { current, month, year } = state;
     const calendarMonth = month || current.month;
     const calendarYear = year || current.year;
@@ -103,17 +104,15 @@ const Calendar: FC<Props> = ({
       />
       <div className={styles.grid}>
         <CalendarDayLabel />
-        {getCalendarDates().map(
-          (date: Array<number | string>, index: number) => (
-            <CalendarDates
-              calendarDate={state}
-              date={date}
-              index={index}
-              key={date.toString()}
-              onDateClick={onDateClick}
-            />
-          ),
-        )}
+        {getCalendarDates().map((date: CalendarArray, index: number) => (
+          <CalendarDates
+            calendarDate={state}
+            date={date}
+            index={index}
+            key={date.toString()}
+            onDateClick={onDateClick}
+          />
+        ))}
       </div>
     </div>
   );
