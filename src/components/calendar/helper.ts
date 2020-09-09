@@ -23,8 +23,7 @@ export interface MonthObject {
 const THIS_YEAR: number = DateTime.local().year;
 const THIS_MONTH: number = DateTime.local().month;
 
-const zeroPad = (value: number, length: number): string =>
-  `${value}`.padStart(length, '0');
+const zeroPad = (value: number): string => `${value}`.padStart(2, '0');
 
 const getMonthDays = (
   month: number = THIS_MONTH,
@@ -51,7 +50,7 @@ export const isSameMonth = (
   const dateMonth = currentDate.month;
   const dateYear = currentDate.year;
 
-  return +basedateMonth === +dateMonth && +basedateYear === +dateYear;
+  return basedateMonth === dateMonth && basedateYear === dateYear;
 };
 
 export const isSameDay = (
@@ -120,17 +119,17 @@ export default (
 
   const prevMonthDates = [...new Array(daysFromPrevMonth)].map((_n, index) => {
     const day = index + 1 + (prevMonthDays - daysFromPrevMonth);
-    return [prevMonthYear, zeroPad(prevMonth, 2), zeroPad(day, 2)];
+    return [prevMonthYear, zeroPad(prevMonth), zeroPad(day)];
   });
 
   const thisMonthDates = [...new Array(monthDays)].map((_n, index) => {
     const day = index + 1;
-    return [year, zeroPad(month, 2), zeroPad(day, 2)];
+    return [year, zeroPad(month), zeroPad(day)];
   });
 
   const nextMonthDates = [...new Array(daysFromNextMonth)].map((_n, index) => {
     const day = index + 1;
-    return [nextMonthYear, zeroPad(nextMonth, 2), zeroPad(day, 2)];
+    return [nextMonthYear, zeroPad(nextMonth), zeroPad(day)];
   });
 
   return [...prevMonthDates, ...thisMonthDates, ...nextMonthDates];
