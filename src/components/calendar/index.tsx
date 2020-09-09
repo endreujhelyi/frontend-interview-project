@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useMemo, useState, useEffect } from 'react';
 import { DateTime } from 'luxon';
 import classnames from 'classnames';
 import CalendarHeader from './calendar-header';
@@ -52,13 +52,9 @@ const Calendar: FC<Props> = ({
     };
   }
 
-  const getCalendarDates = (): Array<CalendarArray> => {
-    const { current, month, year } = state;
-    const calendarMonth = month || current.month;
-    const calendarYear = year || current.year;
-
-    return calendar(calendarMonth, calendarYear);
-  };
+  const calendarDates: Array<CalendarArray> = useMemo(() => {
+    return calendar(state.month, state.year);
+  }, [state.month, state.year]);
 
   useEffect(() => {
     setState(
@@ -104,7 +100,7 @@ const Calendar: FC<Props> = ({
       />
       <div className={styles.grid}>
         <CalendarDayLabel />
-        {getCalendarDates().map((date: CalendarArray, index: number) => (
+        {calendarDates.map((date: CalendarArray, index: number) => (
           <CalendarDates
             calendarDate={state}
             date={date}
